@@ -14,13 +14,26 @@ const AllUsers = ({ loaderData }: Route.ComponentProps) => {
     const { users } = loaderData;
 
     return (
-        <main className="all-users wrapper">
-            <Header
-                title="Manage Users"
-                description="Filter, sort, and access detailed user profiles"
-            />
+        <main className="all-users wrapper relative min-h-screen">
+            {/* Background Image */}
+            <div className="absolute inset-0 z-0">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-indigo-900/20"></div>
+                <img 
+                    src="/assets/images/hero-img.png" 
+                    alt="Travel Background" 
+                    className="w-full h-full object-cover opacity-30"
+                />
+            </div>
+            
+            {/* Content Overlay */}
+            <div className="relative z-10">
+                <Header
+                    title="Manage Users"
+                    description="Filter, sort, and access detailed user profiles"
+                />
 
-            <GridComponent dataSource={users} gridLines="None">
+                <div className="bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-6 mt-6">
+                    <GridComponent dataSource={users} gridLines="None">
                 <ColumnsDirective>
                     <ColumnDirective
                         field="name"
@@ -63,6 +76,8 @@ const AllUsers = ({ loaderData }: Route.ComponentProps) => {
                     />
                 </ColumnsDirective>
             </GridComponent>
+                </div>
+            </div>
         </main>
     )
 }

@@ -9,6 +9,9 @@ import{
 import * as Sentry from "@sentry/react-router";
 import type { Route } from "./+types/root";
 import "./app.css";
+import { useEffect } from "react";
+import { useNavigate } from "react-router";
+import { account } from "~/appwrite/client";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -46,6 +49,20 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    async function checkAuth() {
+      try {
+        const user = await account.get();
+        if (user?.$id) {
+          navigate("/dashboard", { replace: true });
+        }
+      } catch (e) {
+        // Not authenticated, do nothing
+      }
+    }
+    checkAuth();
+  }, [navigate]);
   return <Outlet />;
 }
 

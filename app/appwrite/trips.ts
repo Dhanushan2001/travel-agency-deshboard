@@ -33,3 +33,19 @@ export const getTripById = async (tripId: string) => {
 
     return trip;
 }
+
+export const createTrip = async (tripData: Omit<Trip, 'id'>) => {
+    try {
+        const newTrip = await database.createDocument(
+            appwriteConfig.databaseID,
+            appwriteConfig.tripCollectionId,
+            'unique()', // Auto-generate ID
+            tripData
+        );
+
+        return newTrip;
+    } catch (error) {
+        console.error('Error creating trip:', error);
+        throw error;
+    }
+}

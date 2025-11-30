@@ -81,6 +81,8 @@ declare interface TripCardProps {
   imageUrl: string;
   tags: string[];
   price: string;
+  onDelete?: (id: string) => void;
+  showDeleteButton?: boolean;
 }
 
 declare interface StatsCard {

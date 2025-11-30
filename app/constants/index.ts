@@ -187,6 +187,42 @@ export const allTrips = [
     travelStyle: "Friends",
     estimatedPrice: "$4,000",
   },
+  {
+    id: 5,
+    name: "Santorini Dreams",
+    imageUrls: ["/assets/images/card-img-1.png"],
+    itinerary: [{ location: "Greece" }],
+    tags: ["Romance", "Beach"],
+    travelStyle: "Couple",
+    estimatedPrice: "$2,500",
+  },
+  {
+    id: 6,
+    name: "Swiss Alps Adventure",
+    imageUrls: ["/assets/images/card-img-2.png"],
+    itinerary: [{ location: "Switzerland" }],
+    tags: ["Adventure", "Nature"],
+    travelStyle: "Solo",
+    estimatedPrice: "$3,500",
+  },
+  {
+    id: 7,
+    name: "Moroccan Magic",
+    imageUrls: ["/assets/images/card-img-3.png"],
+    itinerary: [{ location: "Morocco" }],
+    tags: ["Culture", "Desert"],
+    travelStyle: "Family",
+    estimatedPrice: "$1,800",
+  },
+  {
+    id: 8,
+    name: "Bali Paradise",
+    imageUrls: ["/assets/images/card-img-4.png"],
+    itinerary: [{ location: "Indonesia" }],
+    tags: ["Wellness", "Spiritual"],
+    travelStyle: "Friends",
+    estimatedPrice: "$2,200",
+  },
 ];
 export const users = [
   {
